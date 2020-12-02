@@ -152,23 +152,25 @@ public interface RESTService extends Debuggable {
         result.put("status", "error");
         result.put("message", message);
 
-        return Response.ok(zip(JSONUtil.fromMapToJSON(result)), MediaType.APPLICATION_JSON).build();
+        return Response.status(400, zip(JSONUtil.fromMapToJSON(result))).build();
     }
 
     /**
      * 
      */
     default String zip(String body) {
-        var decoded = Base64.getEncoder().encode(GZipUtil.zip(body));
-        return new String(decoded);
+        // var decoded = Base64.getEncoder().encode(GZipUtil.zip(body));
+        // return new String(decoded);
+        return body;
     }
 
     /**
      * 
      */
     default String unzip(String body) {
-        var decoded = Base64.getDecoder().decode(body.getBytes());
-        return GZipUtil.unzip(decoded);
+        // var decoded = Base64.getDecoder().decode(body.getBytes());
+        // return GZipUtil.unzip(decoded);
+        return body;
     }
 
 }
