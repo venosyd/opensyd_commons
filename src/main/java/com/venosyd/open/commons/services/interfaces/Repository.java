@@ -138,7 +138,7 @@ public class Repository implements Debuggable {
         var payload = new HashMap<String, Object>();
         payload.put("database", database);
         payload.put("collection", collection);
-        payload.put("query", query.toJson());
+        payload.put("query", query != null ? query.toJson() : null);
 
         return ServiceSeeker.builder().service("repository").method("post").path("/get/query").headers(headers)
                 .body(payload).run();
@@ -156,7 +156,7 @@ public class Repository implements Debuggable {
         var payload = new HashMap<String, Object>();
         payload.put("database", database);
         payload.put("collection", collection);
-        payload.put("query", query.toJson());
+        payload.put("query", query != null ? query.toJson() : null);
 
         return ServiceSeeker.builder().service("repository").method("post").path("/get/id/query").headers(headers)
                 .body(payload).run();
@@ -174,7 +174,7 @@ public class Repository implements Debuggable {
         var payload = new HashMap<String, Object>();
         payload.put("database", database);
         payload.put("collection", collection);
-        payload.put("query", query.toJson());
+        payload.put("query", query != null ? query.toJson() : null);
 
         return ServiceSeeker.builder().service("repository").method("post").path("/list").headers(headers).body(payload)
                 .run();
@@ -192,7 +192,7 @@ public class Repository implements Debuggable {
         var payload = new HashMap<String, Object>();
         payload.put("database", database);
         payload.put("collection", collection);
-        payload.put("query", query.toJson());
+        payload.put("query", query != null ? query.toJson() : null);
 
         return ServiceSeeker.builder().service("repository").method("post").path("/list/ids").headers(headers)
                 .body(payload).run();
@@ -211,7 +211,7 @@ public class Repository implements Debuggable {
         payload.put("database", database);
         payload.put("collection", collection);
         payload.put("field", field);
-        payload.put("query", query.toJson());
+        payload.put("query", query != null ? query.toJson() : null);
 
         return ServiceSeeker.builder().service("repository").method("post").path("/list/distinct").headers(headers)
                 .body(payload).run();
@@ -229,7 +229,7 @@ public class Repository implements Debuggable {
         var payload = new HashMap<String, Object>();
         payload.put("database", database);
         payload.put("skip", skip + "");
-        payload.put("query", query.toJson());
+        payload.put("query", query != null ? query.toJson() : null);
 
         return ServiceSeeker.builder().service("repository").method("post").path("/list/skip").headers(headers)
                 .body(payload).run();
