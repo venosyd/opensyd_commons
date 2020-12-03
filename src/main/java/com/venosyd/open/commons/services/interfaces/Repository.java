@@ -1,5 +1,6 @@
 package com.venosyd.open.commons.services.interfaces;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -85,7 +86,7 @@ public class Repository implements Debuggable {
         if (response.get("status").equals("ok") && !response.get("payload").equals("[]"))
             return JSONUtil.<T>fromJSONToList((String) response.get("payload"), clazz);
         else
-            return null;
+            return new ArrayList<>();
     }
 
     /**
@@ -98,6 +99,14 @@ public class Repository implements Debuggable {
         } else {
             update(dto.toString());
         }
+    }
+
+    /**
+     * conexao com o servico remoto de persistencia (base de dados) para persistir
+     * um novo endereco
+     */
+    public void save(SerializableEntity dto, boolean withID) {
+        save(dto.toString());
     }
 
     /**
