@@ -17,7 +17,7 @@ import com.venosyd.open.commons.services.interfaces.Login;
 /**
  * @author sergio lisan <sels@venosyd.com>
  * 
- *         venosyd © 2016-2020
+ *         venosyd © 2016-2021
  */
 public interface RESTService extends Debuggable {
 
